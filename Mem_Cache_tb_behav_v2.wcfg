@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Mem_Cache_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Mem_Cache_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="281201fs"></ZoomEndTime>
+      <Cursor1Time time="581350fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="124"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="47" />
+   <wvobject fp_name="/Mem_Cache_tb/DATA_VALID_s" type="logic">
+      <obj_property name="ElementShortName">DATA_VALID_s</obj_property>
+      <obj_property name="ObjectShortName">DATA_VALID_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/Din_s" type="array">
+      <obj_property name="ElementShortName">Din_s[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Din_s[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/CLK_s" type="logic">
+      <obj_property name="ElementShortName">CLK_s</obj_property>
+      <obj_property name="ObjectShortName">CLK_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/RESET_s" type="logic">
+      <obj_property name="ElementShortName">RESET_s</obj_property>
+      <obj_property name="ObjectShortName">RESET_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/Dout_s" type="array">
+      <obj_property name="ElementShortName">Dout_s[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Dout_s[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/NB_AVAILABLE_s" type="logic">
+      <obj_property name="ElementShortName">NB_AVAILABLE_s</obj_property>
+      <obj_property name="ObjectShortName">NB_AVAILABLE_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/FLAG_synchro" type="logic">
+      <obj_property name="ElementShortName">FLAG_synchro</obj_property>
+      <obj_property name="ObjectShortName">FLAG_synchro</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/counter" type="array">
+      <obj_property name="ElementShortName">counter[14:0]</obj_property>
+      <obj_property name="ObjectShortName">counter[14:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/treshold_s" type="array">
+      <obj_property name="ElementShortName">treshold_s[9:0]</obj_property>
+      <obj_property name="ObjectShortName">treshold_s[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/clock_init" type="logic">
+      <obj_property name="ElementShortName">clock_init</obj_property>
+      <obj_property name="ObjectShortName">clock_init</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/clock_period" type="other">
+      <obj_property name="ElementShortName">clock_period</obj_property>
+      <obj_property name="ObjectShortName">clock_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/uut/transit" type="array">
+      <obj_property name="ElementShortName">transit[95:0]</obj_property>
+      <obj_property name="ObjectShortName">transit[95:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/uut/U0/wr_en" type="logic">
+      <obj_property name="ElementShortName">wr_en</obj_property>
+      <obj_property name="ObjectShortName">wr_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/uut/enable_bascule" type="logic">
+      <obj_property name="ElementShortName">enable_bascule</obj_property>
+      <obj_property name="ObjectShortName">enable_bascule</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider134">
+      <obj_property name="label">b1</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/uut/FU1/D" type="array">
+      <obj_property name="ElementShortName">D[7:0]</obj_property>
+      <obj_property name="ObjectShortName">D[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/uut/FU1/Q" type="array">
+      <obj_property name="ElementShortName">Q[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Q[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider125">
+      <obj_property name="label">b2</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/uut/\FF_REG_1(1)\/FUX/D" type="array">
+      <obj_property name="ElementShortName">D[7:0]</obj_property>
+      <obj_property name="ObjectShortName">D[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/uut/\FF_REG_1(1)\/FUX/Q" type="array">
+      <obj_property name="ElementShortName">Q[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Q[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider127">
+      <obj_property name="label">b3</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/uut/\FF_REG_1(2)\/FUX/D" type="array">
+      <obj_property name="ElementShortName">D[7:0]</obj_property>
+      <obj_property name="ObjectShortName">D[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/uut/\FF_REG_1(2)\/FUX/Q" type="array">
+      <obj_property name="ElementShortName">Q[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Q[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider128">
+      <obj_property name="label">fifo1</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/uut/U0/din" type="array">
+      <obj_property name="ElementShortName">din[7:0]</obj_property>
+      <obj_property name="ObjectShortName">din[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/uut/U0/dout" type="array">
+      <obj_property name="ElementShortName">dout[7:0]</obj_property>
+      <obj_property name="ObjectShortName">dout[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider135">
+      <obj_property name="label">b4</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/uut/\FF_REG_2(4)\/FUX2/D" type="array">
+      <obj_property name="ElementShortName">D[7:0]</obj_property>
+      <obj_property name="ObjectShortName">D[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/uut/\FF_REG_2(4)\/FUX2/Q" type="array">
+      <obj_property name="ElementShortName">Q[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Q[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider136">
+      <obj_property name="label">b5</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/uut/\FF_REG_2(5)\/FUX2/D" type="array">
+      <obj_property name="ElementShortName">D[7:0]</obj_property>
+      <obj_property name="ObjectShortName">D[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/uut/\FF_REG_2(5)\/FUX2/Q" type="array">
+      <obj_property name="ElementShortName">Q[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Q[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider139">
+      <obj_property name="label">b6</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/uut/\FF_REG_2(6)\/FUX2/D" type="array">
+      <obj_property name="ElementShortName">D[7:0]</obj_property>
+      <obj_property name="ObjectShortName">D[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/uut/\FF_REG_2(6)\/FUX2/Q" type="array">
+      <obj_property name="ElementShortName">Q[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Q[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider142">
+      <obj_property name="label">fifo2</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/uut/U1/U0/din" type="array">
+      <obj_property name="ElementShortName">din[7:0]</obj_property>
+      <obj_property name="ObjectShortName">din[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/uut/U1/U0/dout" type="array">
+      <obj_property name="ElementShortName">dout[7:0]</obj_property>
+      <obj_property name="ObjectShortName">dout[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider145">
+      <obj_property name="label">b7</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/uut/\FF_REG_3(8)\/FUX3/D" type="array">
+      <obj_property name="ElementShortName">D[7:0]</obj_property>
+      <obj_property name="ObjectShortName">D[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/uut/\FF_REG_3(8)\/FUX3/Q" type="array">
+      <obj_property name="ElementShortName">Q[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Q[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider146">
+      <obj_property name="label">b8</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/uut/\FF_REG_3(9)\/FUX3/D" type="array">
+      <obj_property name="ElementShortName">D[7:0]</obj_property>
+      <obj_property name="ObjectShortName">D[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/uut/\FF_REG_3(9)\/FUX3/Q" type="array">
+      <obj_property name="ElementShortName">Q[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Q[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider147">
+      <obj_property name="label">b9</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/uut/\FF_REG_3(10)\/FUX3/D" type="array">
+      <obj_property name="ElementShortName">D[7:0]</obj_property>
+      <obj_property name="ObjectShortName">D[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Mem_Cache_tb/uut/\FF_REG_3(10)\/FUX3/Q" type="array">
+      <obj_property name="ElementShortName">Q[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Q[7:0]</obj_property>
+   </wvobject>
+</wave_config>

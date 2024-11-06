@@ -1,0 +1,28 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Sun Oct 13 15:12:57 2024
+# Process ID: 19496
+# Current directory: C:/Users/evanm/Documents/ESIREM/4a/S7/FPGA/Projet_TP
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent20228 C:\Users\evanm\Documents\ESIREM\4a\S7\FPGA\Projet_TP\Projet_TP.xpr
+# Log file: C:/Users/evanm/Documents/ESIREM/4a/S7/FPGA/Projet_TP/vivado.log
+# Journal file: C:/Users/evanm/Documents/ESIREM/4a/S7/FPGA/Projet_TP\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/evanm/Documents/ESIREM/4a/S7/FPGA/Projet_TP/Projet_TP.xpr
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files C:/Users/evanm/Documents/ESIREM/4a/S7/TD1/FF_jd.vhd] -no_script -reset -force -quiet
+remove_files  C:/Users/evanm/Documents/ESIREM/4a/S7/TD1/FF_jd.vhd
+add_files -norecurse C:/Users/evanm/Downloads/FF_jd.vhd
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files C:/Users/evanm/Documents/ESIREM/4a/S7/Projet/PROJET_TP/tb_lena_dupliq_2p.vhd] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 C:/Users/evanm/Documents/ESIREM/4a/S7/Projet/PROJET_TP/tb_lena_dupliq_2p.vhd
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse C:/Users/evanm/Downloads/tb_lena_dupliq_2p.vhd
+update_compile_order -fileset sim_1
+launch_simulation
+open_wave_config C:/Users/evanm/Documents/ESIREM/4a/S7/FPGA/Projet_TP/Mem_Cache_tb_behav_v2.wcfg
+source Mem_Cache_tb.tcl
+run all
+close_sim

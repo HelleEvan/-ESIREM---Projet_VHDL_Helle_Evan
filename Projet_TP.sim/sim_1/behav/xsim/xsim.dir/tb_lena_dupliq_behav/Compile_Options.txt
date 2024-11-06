@@ -1,0 +1,1 @@
+-wto "07016c82186649a19da4fb647dbeb17d" --incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" -L "xpm" --snapshot "tb_lena_dupliq_behav" "xil_defaultlib.tb_lena_dupliq" -log "elaborate.log" 
