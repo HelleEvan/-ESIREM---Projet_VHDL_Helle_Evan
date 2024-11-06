@@ -1,0 +1,9 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Projet_TP.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0_sim_netlist.vhdl" \
+"../../../../../../../../../../Downloads/FF_jd.vhd" \
+"../../../../Projet_TP.srcs/sources_1/new/Mem_cache.vhd" \
+"../../../../Projet_TP.srcs/sim_1/new/Mem_Cache_tb.vhd" \
+
+# Do not sort compile order
+nosort
