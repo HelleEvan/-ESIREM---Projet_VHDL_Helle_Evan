@@ -20,6 +20,7 @@
 !*.bd
 !*.edif
 #########
+!*.dat
 #IP files
 #########
 #.xci: synthesis and implemented not possible - you need to return back to the previous version to generate output products
