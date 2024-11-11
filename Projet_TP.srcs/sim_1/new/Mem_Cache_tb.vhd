@@ -177,7 +177,7 @@ architecture Behavioral of Mem_Cache_tb is
         wait for 1*clock_period;
         wait until NB_AVAILABLE_s = '1';
         wait for 1*clock_period;
-        -- changer la valeur '1' en '0' pour écrire quand nous somme à data_available à 1
+        -- changer la valeur '1' en '0' pour écrire quand nous sommes à data_available à 1
         while not NB_AVAILABLE_s ='0' loop
         write (Oline, Dout_s, right, 2);
         writeline (results, Oline);

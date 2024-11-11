@@ -84,7 +84,7 @@ signal prog_full_2s: std_logic;
 --signal rd_en_fifo2 :std_logic;
 --signaux bascules
 -- 72 bits + 24 de transition après les fifos
-signal transit : std_logic_vector (95 downto 0);
+signal transit : std_logic_vector (87 downto 0);
 
 
 begin
