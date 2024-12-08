@@ -206,6 +206,13 @@ architecture Behavioral of Mem_Cache_tb is
 --            wait;
 --        end process;
         
+    En_Bascule: process(CLK_s)
+    begin
+        if (CLK_s'event and CLK_s = '1') then
+            enable_bascule_s <= DATA_VALID_s;
+        end if;
+    end process;
+
     clocking: process
         begin
             clk_s <= '0'; 

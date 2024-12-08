@@ -192,9 +192,9 @@ begin
         enable_temp <= '0';
         Gx <= 0;
         Gy <= 0;
-        temp_pixels <= (others => '0');
+        temp_pixels <= (others => '0');    
         temp_transit_magnitude <= (others => '0');
-    elsif rising_edge(CLK) then
+    elsif (CLK'event and CLK='1') then
         if DATA_VALID = '1' then
             -- Mise à jour des pixels
             temp_pixels(7 downto 0) <= transit(7 downto 0);
@@ -237,5 +237,15 @@ end process;
 -- Multiplexage pour résoudre le conflit sur transit(39 downto 32)
 transit(39 downto 32) <= temp_transit_magnitude when enable_temp = '1' else
                          transit_bascule(39 downto 32);
+                         
+process(CLK, RESET)
+begin
+    if RESET = '1' then
+        transit_bascule <= (others => '0');
+    elsif rising_edge(CLK) then
+        transit_bascule <= transit; -- Synchroniser avec le signal transit
+    end if;
+end process;
+
     
 end Behavioral;
