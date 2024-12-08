@@ -21,6 +21,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL; -- pour les opérations arithmétiques
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -82,10 +83,29 @@ signal empty_2s : std_logic;
 signal prog_full_2s: std_logic;
 --signal wr_en_fifo2 :std_logic;
 --signal rd_en_fifo2 :std_logic;
+
 --signaux bascules
--- 72 bits + 24 de transition après les fifos
+-- 72 bits + 24 de transition après les fifos - 8 bits de la derniere fifo que nous avons retiré
 signal transit : std_logic_vector (87 downto 0);
 
+--signaux pour filtrage SOBEL 
+signal Gx, Gy : integer range -1024 to 1024;
+signal magnitude : integer range 0 to 2048;
+--signal P33 : STD_LOGIC_VECTOR (7 downto 0);
+--signal P32 : STD_LOGIC_VECTOR (7 downto 0);
+--signal P31 : STD_LOGIC_VECTOR (7 downto 0);
+--signal P23 : STD_LOGIC_VECTOR (7 downto 0);
+--signal P22 : STD_LOGIC_VECTOR (7 downto 0);
+--signal P21 : STD_LOGIC_VECTOR (7 downto 0);
+--signal P13 : STD_LOGIC_VECTOR (7 downto 0);
+--signal P12 : STD_LOGIC_VECTOR (7 downto 0);
+--signal P11 : STD_LOGIC_VECTOR (7 downto 0);
+
+--signal temp_magnitude : std_logic_vector(7 downto 0);
+signal temp_transit_magnitude : std_logic_vector(7 downto 0);
+signal temp_pixels : std_logic_vector(71 downto 0); -- Pour les 9 pixels utilisés
+signal enable_temp : std_logic := '0'; -- Signal de contrôle du multiplexeur
+signal transit_bascule   : std_logic_vector(87 downto 0); -- Sortie des bascules
 
 begin
 -------------------------------------------------------------
@@ -101,8 +121,8 @@ begin
 
 FF_REG_1: for I in 1 to 2 generate
     FUX:FF_jd  port map(
-        transit((I*8)-1 downto (I-1)*8),     
-        transit((I*8)+7 downto I*8),       
+        transit_bascule((I*8)-1 downto (I-1)*8),     
+        transit_bascule((I*8)+7 downto I*8),       
         Clk,
         enable_bascule,
         reset
@@ -112,8 +132,8 @@ end generate;
 -- 2 e vague de bascule (n° 4, 5, 6 )
 FF_REG_2: for I in 4 to 6 generate
     FUX2:FF_jd  port map(
-        transit((I*8)-1 downto (I-1)*8),     
-        transit((I*8)+7 downto I*8),       
+        transit_bascule((I*8)-1 downto (I-1)*8),     
+        transit_bascule((I*8)+7 downto I*8),       
         Clk,
         enable_bascule,
         reset
@@ -123,8 +143,8 @@ end generate;
 -- 3e vague de bascule (n° 7, 8, 9)
 FF_REG_3: for I in 8 to 10 generate
     FUX3:FF_jd  port map(
-        transit((I*8)-1 downto (I-1)*8),     
-        transit((I*8)+7 downto I*8),       
+        transit_bascule((I*8)-1 downto (I-1)*8),     
+        transit_bascule((I*8)+7 downto I*8),       
         Clk,
         enable_bascule,
         reset
@@ -164,5 +184,58 @@ end generate;
 
     dout <= transit(87 downto 80); -- fin du bus de transit de données
 
+-- Processus pour Sobel et contrôle du multiplexeur
+sobel: process(CLK, RESET)
+begin
+    if RESET = '1' then
+        -- Réinitialisation des signaux
+        enable_temp <= '0';
+        Gx <= 0;
+        Gy <= 0;
+        temp_pixels <= (others => '0');
+        temp_transit_magnitude <= (others => '0');
+    elsif rising_edge(CLK) then
+        if DATA_VALID = '1' then
+            -- Mise à jour des pixels
+            temp_pixels(7 downto 0) <= transit(7 downto 0);
+            temp_pixels(15 downto 8) <= transit(15 downto 8);
+            temp_pixels(23 downto 16) <= transit(23 downto 16);
+            temp_pixels(31 downto 24) <= transit(31 downto 24);
+            temp_pixels(39 downto 32) <= transit(39 downto 32);
+            temp_pixels(47 downto 40) <= transit(47 downto 40);
+            temp_pixels(55 downto 48) <= transit(55 downto 48);
+            temp_pixels(63 downto 56) <= transit(63 downto 56);
+            temp_pixels(71 downto 64) <= transit(71 downto 64);
 
+            -- Calcul des gradients
+            Gx <= (-1 * to_integer(unsigned(temp_pixels(71 downto 64)))) + 
+                  ( 1 * to_integer(unsigned(temp_pixels(55 downto 48)))) + 
+                  (-2 * to_integer(unsigned(temp_pixels(47 downto 40)))) + 
+                  ( 2 * to_integer(unsigned(temp_pixels(31 downto 24)))) + 
+                  (-1 * to_integer(unsigned(temp_pixels(23 downto 16)))) + 
+                  ( 1 * to_integer(unsigned(temp_pixels(7 downto 0))));
+
+            Gy <= ( 1 * to_integer(unsigned(temp_pixels(71 downto 64)))) + 
+                  ( 2 * to_integer(unsigned(temp_pixels(63 downto 56)))) + 
+                  ( 1 * to_integer(unsigned(temp_pixels(55 downto 48)))) + 
+                  (-1 * to_integer(unsigned(temp_pixels(23 downto 16)))) + 
+                  (-2 * to_integer(unsigned(temp_pixels(15 downto 8)))) + 
+                  (-1 * to_integer(unsigned(temp_pixels(7 downto 0))));
+
+            -- Calcul de la magnitude
+            temp_transit_magnitude <= std_logic_vector(to_unsigned(abs(Gx) + abs(Gy), 8));
+
+            -- Activation du multiplexeur
+            enable_temp <= '1';
+        else
+            -- Désactiver le multiplexeur si pas de données valides
+            enable_temp <= '0';
+        end if;
+    end if;
+end process;
+
+-- Multiplexage pour résoudre le conflit sur transit(39 downto 32)
+transit(39 downto 32) <= temp_transit_magnitude when enable_temp = '1' else
+                         transit_bascule(39 downto 32);
+    
 end Behavioral;
