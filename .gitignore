@@ -5,6 +5,7 @@
 #########
 #Exclude all
 #########
+Projet_TP/
 *
 !*/
 !.gitignore
